@@ -1,46 +1,78 @@
+document.addEventListener("DOMContentLoaded", () => {
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+const results = document.querySelector("#results")
+
+results.textContent = "There are only 5 rounds in this game. Good luck!";
+
 // Declaring the intial players score (variables)
 let HumanScore = 0
 let ComputerScore = 0
+let RoundsPlayed = 0
+
+const choice = ["Rock","Paper","Scissor"]
 
 // function to get the computer choice 
-const choice = ["Rock","Paper","Scissor"]
 function getComputerChoice(){
     const randomIndex = Math.floor(Math.random()*choice.length)
     return choice[randomIndex]
 }
 
-// function to get the human choice
-function getHumanChoice(){
-    let input = prompt("what do you wish to choice? (Rock, Paper, Scissor)")
-    return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
-}
-
-function PlayRound(HumanChoice, ComputerChoice){
-    switch(true){
-        case (HumanChoice === "Rock" && ComputerChoice === "Paper"):
-        case (HumanChoice === "Paper" && ComputerChoice === "Scissor"):
-        case (HumanChoice === "Scissor" && ComputerChoice === "Rock"):
-            ComputerScore++
-            return ("You lose!");
-        case (HumanChoice === "Paper" && ComputerChoice === "Rock"):
-        case (HumanChoice === "Scissor" && ComputerChoice === "Paper"):
-        case (HumanChoice === "Rock" && ComputerChoice === "Scissor"):
-            HumanScore++
-            return ("You win!");
-        case (HumanChoice === ComputerChoice):
-            return ("It's a tie!");
+function PlayRound(HumanChoice, ComputerChoice) {
+    if (HumanChoice === "Rock" && ComputerChoice === "Paper") {
+        ComputerScore++;
+        results.textContent =  "You lose! Paper beats Rock.";
+    } else if (HumanChoice === "Paper" && ComputerChoice === "Scissor") {
+        ComputerScore++;
+        results.textContent =  "You lose! Scissor beats Paper.";
+    } else if (HumanChoice === "Scissor" && ComputerChoice === "Rock") {
+        ComputerScore++;
+        results.textContent = "You lose! Rock beats Scissor.";
+    } else if (HumanChoice === "Paper" && ComputerChoice === "Rock") {
+        HumanScore++;
+        results.textContent = "You win! Paper beats Rock.";
+    } else if (HumanChoice === "Scissor" && ComputerChoice === "Paper") {
+        HumanScore++;
+        results.textContent = "You win! Scissor beats Paper.";
+    } else if (HumanChoice === "Rock" && ComputerChoice === "Scissor") {
+        HumanScore++;
+        results.textContent =  "You win! Rock beats Scissor.";
+    } else if (HumanChoice === ComputerChoice) {
+        results.textContent =  "It's a tie!";
+    } else {
+        results.textContent =  "Invalid input!";
     }
 }
-// adding for loop for 3 rounds of rock-paper-scissor
-for (let round = 1; round <= 3; round++){
-    const HumanChoice = getHumanChoice()
-    const ComputerChoice = getComputerChoice()
 
-    console.log("your choice : " ,HumanChoice) 
-    console.log("computer choice: ",ComputerChoice)
-    console.log(PlayRound(HumanChoice,ComputerChoice))
+
+function handleClick(humanChoice) {
+    if (RoundsPlayed >= 3) return;
+
+    const HumanChoice = humanChoice;
+    const ComputerChoice = getComputerChoice();
+    const roundResult = PlayRound(HumanChoice, ComputerChoice);
+    RoundsPlayed++;
+
+    console.log("your choice: ", HumanChoice);
+    console.log("computer choice: ", ComputerChoice);
+    console.log(roundResult);
+
+    if (RoundsPlayed === 3) {
+        console.log("\nFinal Score:");
+        console.log(`Human: ${HumanScore}`);
+        console.log(`Computer: ${ComputerScore}`);
+        console.log(count());
+    }
 }
-// functiom to count the scores
+
+// Add event listeners to buttons
+rock.addEventListener("click", () => handleClick("Rock"));
+paper.addEventListener("click", () => handleClick("Paper"));
+scissor.addEventListener("click", () => handleClick("Scissor"));
+
+
+// function to count the scores
 function count(){
     if (HumanScore > ComputerScore)
         return("YOU ARE THE WINNER!")
@@ -51,7 +83,10 @@ function count(){
 }
 
 
-console.log("\nFinal Score:");
-console.log(`Human: ${HumanScore}`)
-console.log(`Computer ${ComputerScore}`)
-console.log(count())
+if (RoundsPlayed === 3) {
+    console.log("\nFinal Score:");
+    console.log(`Human: ${HumanScore}`);
+    console.log(`Computer: ${ComputerScore}`);
+    console.log(count());
+}})
+
