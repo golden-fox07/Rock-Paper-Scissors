@@ -12,7 +12,7 @@ body{
     line-height: 200px;
 }
 
-#rock,#paper,#scissor{
+#rock,#paper,#scissor,#restart{
     background-color: #a4161a; 
     font-family:'Press Start 2P', cursive; 
     color: #ffffff;             
@@ -22,10 +22,10 @@ body{
     border: 0cm;        
     font-size: 20px;           
     cursor: pointer; 
-             
+    
 }
 
-#rock:hover,#paper:hover,#scissor:hover{
+#rock:hover,#paper:hover,#scissor:hover,#restart:hover{
     background-color: #6a040f;
     border: none;
     transform: translateY(-0.15em);
@@ -34,5 +34,6 @@ body{
 
 #results{
     color: #d3d3d3;
-    line-height: 200px; 
+    
+ 
 }
