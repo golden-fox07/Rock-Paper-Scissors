@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     paper.addEventListener("click", () => handleClick("Paper"));
     scissor.addEventListener("click", () => handleClick("Scissor"));
 
-    // NEW: Restart button functionality
+    // restart button
     restartBtn.addEventListener("click", () => {
         HumanScore = 0;
         ComputerScore = 0;
