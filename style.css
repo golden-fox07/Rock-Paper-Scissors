@@ -22,6 +22,7 @@ body{
     border: 0cm;        
     font-size: 20px;           
     cursor: pointer; 
+
     
 }
 
@@ -29,11 +30,9 @@ body{
     background-color: #6a040f;
     border: none;
     transform: translateY(-0.15em);
-    
 }
 
+
 #results{
-    color: #d3d3d3;
-    
- 
+    color: #d3d3d3; 
 }
