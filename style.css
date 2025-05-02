@@ -1,10 +1,10 @@
 @import 'https://fonts.googleapis.com/css?family=Press+Start+2P';
 
+
 body{
-    background-color: #161a1d;
+    background-color: black;
     text-align: center;
     font-family:'Press Start 2P', cursive;
-    cursor: pointer;
 }
 
 .heading{
@@ -13,27 +13,53 @@ body{
     line-height: 200px;
 }
 
+
+.footer{
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 20px;
+    color: #ffff;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+}
+
+
 #rock,#paper,#scissor,#restart{
     background-color: #a4161a; 
     font-family:'Press Start 2P', cursive; 
     color: #ffffff;             
-    padding: 20px 40px; 
+    padding: 19px 39px; 
     font-weight: bolder;             
     border-radius: 20px;
     border: 0cm;        
     font-size: 20px;           
     cursor: pointer; 
-
-    
 }
 
 #rock:hover,#paper:hover,#scissor:hover,#restart:hover{
     background-color: #6a040f;
     border: none;
-    transform: translateY(-0.15em);
+    transform: translateY(-0.15em); 
 }
 
-
 #results{
-    color: #d3d3d3; 
+    color: #d3d3d3;
+}
+
+a{color:#ffff;}
+
+.list {
+    list-style-position: inside;
+}
+
+a:hover{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #f5e7d2;
+    text-decoration: none;
 }
