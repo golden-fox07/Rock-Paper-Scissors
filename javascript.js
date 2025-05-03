@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (RoundsPlayed === 3) {
-            const finalMessage = count();
+            const finalMessage = score_count();
             results.innerHTML += `<br>Final Result: ${finalMessage}<br>`;
         }
     }
 
-    function count() {
+    function score_count() {
         if (HumanScore > ComputerScore) {
             return "YOU ARE THE WINNER!";
         } 
