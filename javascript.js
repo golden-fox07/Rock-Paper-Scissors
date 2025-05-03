@@ -66,17 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         RoundsPlayed++;
 
-        results.textContent = roundResult + "\n";
-        results.textContent += "Human: " + HumanScore + "\n";
-        results.textContent += "Computer: " + ComputerScore + "\n";
-        results.textContent += "Round: " + RoundsPlayed;
+        results.innerHTML = roundResult + "<br><br>";
+        results.innerHTML += "Human: " + HumanScore + "<br>";
+        results.innerHTML += "Computer: " + ComputerScore + "<br>";
+        results.innerHTML += "Round: " + RoundsPlayed + "<br><br>";
 
 
 
         if (RoundsPlayed === 3) {
-            const finalMessage = count();
-
-            results.textContent += `\nFinal Result: ${finalMessage}\n`;
+            const finalMessage = Score_count();
+            results.innerHTML += `<br>Final Result: ${finalMessage}<br>`;
         }
     }
 
@@ -92,12 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Add click event listeners to game buttons
+    // Adding click event listeners to game buttons
     rock.addEventListener("click", () => handleClick("Rock"));
     paper.addEventListener("click", () => handleClick("Paper"));
     scissor.addEventListener("click", () => handleClick("Scissor"));
 
-    // restart button
+    // NEW: Restart button functionality
     restartBtn.addEventListener("click", () => {
         HumanScore = 0;
         ComputerScore = 0;
@@ -105,5 +104,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         results.textContent = "Game has been reset. There are only 3 rounds. Good luck!";
     });
-
 });
