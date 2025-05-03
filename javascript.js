@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (RoundsPlayed === 3) {
-            const finalMessage = Score_count();
+            const finalMessage = count();
             results.innerHTML += `<br>Final Result: ${finalMessage}<br>`;
         }
     }
