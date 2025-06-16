@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+    // Selecting buttons and result display elements
     const rock = document.querySelector("#rock");
     const paper = document.querySelector("#paper");
     const scissor = document.querySelector("#scissor");
@@ -15,15 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let HumanScore = 0;
     let ComputerScore = 0;
     let RoundsPlayed = 0;
-
     const choice = ["Rock", "Paper", "Scissor"];
 
+    // Function to get a random choice for the computer
     function getComputerChoice() {
         const randomIndex = Math.floor(Math.random() * choice.length);
         return choice[randomIndex];
-
     }
 
+// Function to update the computer image based on the computer's choice
     function updateComputerImage(choice) {
     switch (choice) {
         case "Rock":
@@ -39,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             computerImage.src = "";
     }
 }
-
-
+// Function to play a round of Rock-Paper-Scissors
     function PlayRound(HumanChoice, ComputerChoice) {
         let resultText = "";
 
@@ -74,9 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             resultText = "Invalid input!";
         }
-
         return resultText;
     }
+    // Function to update the player image based on the player's choice
     function updatePlayerImage(humanChoice) {
        
         switch (humanChoice) {
@@ -93,15 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 playerImage.src = "";
         }
     }
+    // Function to handle the click event for each game button
     function handleClick(humanChoice) {
         if (RoundsPlayed >= 3) return;
 
-         updatePlayerImage(humanChoice)
+        updatePlayerImage(humanChoice)
 
         const HumanChoice = humanChoice;
         const ComputerChoice = getComputerChoice();
         updateComputerImage(ComputerChoice);
-
         const roundResult = PlayRound(HumanChoice, ComputerChoice);
 
         RoundsPlayed++;
@@ -116,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
             results.innerHTML += `<br><strong>Final Result: ${finalMessage}</strong><br>`;
         }
     }
-
+// Function to determine the final score after 3 rounds
     function score_count() {
         if (HumanScore > ComputerScore) {
             return "YOU ARE THE WINNER!";
